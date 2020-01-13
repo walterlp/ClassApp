@@ -12,6 +12,10 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.walterlp.rpgclass.R;
+import com.example.walterlp.rpgclass.activity.activity.utils.UiUtils;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class CadastroActivity extends AppCompatActivity {
     private ProgressBar progressBar;
@@ -37,7 +41,24 @@ public class CadastroActivity extends AppCompatActivity {
         buttonCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CadastroActivity.this, "Teste cadastrar", Toast.LENGTH_SHORT).show();
+
+
+                List<EditText> editTexts = new ArrayList<>();
+                editTexts.add(editTextEmail);
+                editTexts.add(editTextSenha);
+                editTexts.add(editTextNome);
+                if(UiUtils.validFields(editTexts, getApplicationContext())){
+                    progressBar.setVisibility(View.VISIBLE);
+
+
+
+                }
+
+
+
+
+
+
             }
         });
     }

@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Rpgclass</string>
+    <string name="campo_obrigatorio">Campo obrigatório!</string>
 </resources>
