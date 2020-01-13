@@ -22,7 +22,13 @@ public class FirebaseDAO {
         return  databaseReference;
 
     }
+    public static FirebaseAuth getAuth() {
+        if (auth == null) {
+            auth = FirebaseAuth.getInstance();
 
+        }
+        return auth;
+    }
 
     public static StorageReference getStorage(){
         if(storageReference  == null){

@@ -40,6 +40,13 @@ public class Professor extends EntidadeNome {
         return refTurmas;
     }
 
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
     public void setRefTurmas(Map<String, String> refTurmas) {
         this.refTurmas = refTurmas;
@@ -54,4 +61,5 @@ public class Professor extends EntidadeNome {
             }
         }
     }
+
 }

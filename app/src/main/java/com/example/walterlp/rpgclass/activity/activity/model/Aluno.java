@@ -6,9 +6,11 @@ import java.util.List;
 import java.util.Map;
 
 public class Aluno  extends  EntidadeNome{
+    private String email;
     private String urlImagem;
     private List<Turma> turmas ;
     private Map<String, String> refTurmas;
+
 
 
     public String getUrlImagem() {
@@ -17,6 +19,15 @@ public class Aluno  extends  EntidadeNome{
 
     public void setUrlImagem(String urlImagem) {
         this.urlImagem = urlImagem;
+    }
+
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Exclude
