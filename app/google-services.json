@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "484820669648",
+    "firebase_url": "https://banco-c87f1.firebaseio.com",
+    "project_id": "banco-c87f1",
+    "storage_bucket": "banco-c87f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:484820669648:android:0ea5c9fdc5bec0606ffad5",
+        "android_client_info": {
+          "package_name": "com.example.walterlp.rpgclass"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "484820669648-njonnj4kkj6f12g52k21k2kcb5lo9vif.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.walterlp.rpgclass",
+            "certificate_hash": "fb94236673010047d172593e863ca563c9b5d216"
+          }
+        },
+        {
+          "client_id": "484820669648-vskaem93glahjf38fbruv50oo87qb9p9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBOStCU3FnjnWbDab9LiBXK7YhC2Jxp8uc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "484820669648-vskaem93glahjf38fbruv50oo87qb9p9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
