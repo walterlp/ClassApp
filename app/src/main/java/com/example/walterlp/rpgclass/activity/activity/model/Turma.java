@@ -1,25 +1,23 @@
 package com.example.walterlp.rpgclass.activity.activity.model;
 
+import com.google.firebase.database.Exclude;
+
 import java.util.List;
+import java.util.Map;
 
-public class Turma {
+public class Turma  extends EntidadeNome{
 
-    private String idTurma;
+
     private String urlImagem;
-    private String nome;
+
     private String descricao;
     private String codigo;
-    private Professor professor;
+    private String idProfessor;
     private List<Aluno> alunos;
 
+    private Map<String, String> refAlunos;
 
-    public String getIdTurma() {
-        return idTurma;
-    }
 
-    public void setIdTurma(String idTurma) {
-        this.idTurma = idTurma;
-    }
 
     public String getUrlImagem() {
         return urlImagem;
@@ -29,13 +27,6 @@ public class Turma {
         this.urlImagem = urlImagem;
     }
 
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
 
     public String getDescricao() {
         return descricao;
@@ -53,19 +44,41 @@ public class Turma {
         this.codigo = codigo;
     }
 
-    public Professor getProfessor() {
-        return professor;
-    }
-
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
-    }
-
+    @Exclude
     public List<Aluno> getAlunos() {
         return alunos;
     }
 
+    @Exclude
     public void setAlunos(List<Aluno> alunos) {
         this.alunos = alunos;
+    }
+
+
+
+    public Map<String, String> getRefAlunos() {
+        return refAlunos;
+    }
+
+    public void setRefAlunos(Map<String, String> refAlunos) {
+        this.refAlunos = refAlunos;
+    }
+
+    public void trellarAlunos(List <Aluno> alunos){
+        for(String key : refAlunos.keySet()){
+            for (Aluno a: alunos) {
+                if(a.getId().equals(key)){
+                    this.alunos.add(a);
+                }
+            }
+        }
+    }
+
+    public String getIdProfessor() {
+        return idProfessor;
+    }
+
+    public void setIdProfessor(String idProfessor) {
+        this.idProfessor = idProfessor;
     }
 }

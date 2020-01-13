@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "484820669648-r7ej84hbh05ponjn2483aatgap2rbs9r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.walterlp.rpgclass",
+            "certificate_hash": "c6d0d32405e9d2c2a1ac1c1b1731472dc667626a"
+          }
+        },
+        {
           "client_id": "484820669648-njonnj4kkj6f12g52k21k2kcb5lo9vif.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
