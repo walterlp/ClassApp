@@ -16,6 +16,7 @@ import com.example.walterlp.rpgclass.R;
 import com.example.walterlp.rpgclass.activity.activity.DAO.FirebaseDAO;
 import com.example.walterlp.rpgclass.activity.activity.model.Sessao;
 import com.example.walterlp.rpgclass.activity.activity.model.TipoUsuario;
+import com.example.walterlp.rpgclass.activity.activity.model.Usuario;
 import com.example.walterlp.rpgclass.activity.activity.utils.UiUtils;
 
 import java.util.ArrayList;
@@ -55,16 +56,19 @@ public class CadastroActivity extends AppCompatActivity {
                 editTexts.add(editTextNome);
                 if (UiUtils.validFields(editTexts, getApplicationContext())) {
 
-                    Sessao sessao = new Sessao();
 
+                    Usuario usuario = new Usuario();
+                    usuario.setEmail(editTextEmail.getText().toString());
+                    usuario.setSenha(editTextSenha.getText().toString());
+                    usuario.setNome(editTextNome.getText().toString());
                     if(switchTipo.isChecked()){
-                        sessao.setTipoUsuario(TipoUsuario.PROFESSOR);
+                        usuario.setTipo(TipoUsuario.PROFESSOR);
                     }else{
-                        sessao.setTipoUsuario(TipoUsuario.ALUNO);
+                        usuario.setTipo(TipoUsuario.ALUNO);
 
                     }
 
-                    new FirebaseDAO().register(editTextNome.getText().toString(), editTextEmail.getText().toString(), editTextSenha.getText().toString(), sessao, progressBar,CadastroActivity.this);
+                    new FirebaseDAO().register(usuario, progressBar,CadastroActivity.this);
 
 
                 }
