@@ -12,6 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.walterlp.rpgclass.activity.activity.model.Sessao;
 import com.example.walterlp.rpgclass.activity.activity.model.TipoUsuario;
 import com.example.walterlp.rpgclass.activity.activity.model.Usuario;
+import com.example.walterlp.rpgclass.activity.activity.ui.LoginActivity;
 import com.example.walterlp.rpgclass.activity.activity.ui.MainActivity;
 import com.example.walterlp.rpgclass.activity.activity.utils.ConstantsUtils;
 import com.example.walterlp.rpgclass.activity.activity.utils.GetDataFromFirebase;
@@ -28,7 +29,7 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.orm.SugarRecord;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -90,7 +91,13 @@ public class FirebaseDAO {
     public static Query getTurmaById(String id){
         return FirebaseDatabase.getInstance().getReference(ConstantsUtils.TURMAS_NODE).child(id);
     }
+    public void singOut(AppCompatActivity context){
+        auth.signOut();
+        removerSessao();
+        context.finish();
+        context.startActivity(new Intent(context, LoginActivity.class));
 
+    }
     public void login(final String email, final String senha, ProgressBar progressBar, AppCompatActivity context){
         progressBar.setVisibility(View.VISIBLE);
         auth.signInWithEmailAndPassword(email, senha).addOnCompleteListener(context, new OnCompleteListener<AuthResult>() {
@@ -101,6 +108,9 @@ public class FirebaseDAO {
                     progressBar.setVisibility(View.GONE);
                     context.startActivity(new Intent(context, MainActivity.class));
 
+                }else {
+                    progressBar.setVisibility(View.GONE);
+                    Toast.makeText(context, "Usuário não encontrado! \nPor favor, verifique suas credenciais, ou contate o suporte.", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -167,7 +177,6 @@ public class FirebaseDAO {
                 isValid = true;
             }
         }
-
         return isValid;
     }
     public void salvarSessao(Usuario usuario){
@@ -183,8 +192,13 @@ public class FirebaseDAO {
        }
     }
     public  void removerSessao(){
-        Sessao sessao = Sessao.findById(Sessao.class, 1L);
-        sessao.delete();
+        try {
+            Sessao sessao = Sessao.findById(Sessao.class, 1L);
+            sessao.delete();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
     }
     public void register(Usuario usuario, ProgressBar progressBar, AppCompatActivity context) {
         progressBar.setVisibility(View.VISIBLE);

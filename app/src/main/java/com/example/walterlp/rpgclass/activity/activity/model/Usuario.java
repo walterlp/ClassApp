@@ -88,9 +88,11 @@ public class Usuario extends EntidadeNome {
             }
         }
     }
+    @Exclude
     public boolean isAluno(){
         return this.tipo.equals(TipoUsuario.ALUNO);
     }
+    @Exclude
     public boolean isProfessor(){
         return this.tipo.equals(TipoUsuario.PROFESSOR);
     }

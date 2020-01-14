@@ -7,13 +7,13 @@
     android:background="@drawable/backgroud_degrade"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".activity.CadastroActivity">
+    tools:context=".activity.activity.ui.CadastroActivity">
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="200dp"
         android:layout_height="60dp"
-        tools:srcCompat="@drawable/rpg1" />
+        tools:src="@drawable/rpg1" />
 
     <EditText
         android:id="@+id/editCadastroEmail"
@@ -89,6 +89,14 @@
         android:background="@drawable/backgroud_botao"
         android:text="Cadastrar"
         android:textColor="@android:color/white" />
+    <TextView
+        android:textColor="@android:color/white"
+        android:textSize="16sp"
+        android:id="@+id/textAcessar"
+        android:text="Já possui cadastro? Clique aqui para acessar."
+        android:layout_margin="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <ProgressBar
         android:id="@+id/progressCadastro"

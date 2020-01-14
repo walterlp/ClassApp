@@ -13,7 +13,7 @@ public class Turma  extends EntidadeNome{
     private String descricao;
     private String codigo;
     private String idProfessor;
-    private List<Aluno> alunos;
+    private List<Usuario> alunos;
 
     private Map<String, String> refAlunos;
 
@@ -45,12 +45,12 @@ public class Turma  extends EntidadeNome{
     }
 
     @Exclude
-    public List<Aluno> getAlunos() {
+    public List<Usuario> getAlunos() {
         return alunos;
     }
 
     @Exclude
-    public void setAlunos(List<Aluno> alunos) {
+    public void setAlunos(List<Usuario> alunos) {
         this.alunos = alunos;
     }
 
@@ -64,9 +64,9 @@ public class Turma  extends EntidadeNome{
         this.refAlunos = refAlunos;
     }
 
-    public void trellarAlunos(List <Aluno> alunos){
+    public void trellarAlunos(List <Usuario> alunos){
         for(String key : refAlunos.keySet()){
-            for (Aluno a: alunos) {
+            for (Usuario a: alunos) {
                 if(a.getId().equals(key)){
                     this.alunos.add(a);
                 }

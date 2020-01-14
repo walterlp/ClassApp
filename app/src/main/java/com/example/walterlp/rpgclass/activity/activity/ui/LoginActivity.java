@@ -1,11 +1,13 @@
 package com.example.walterlp.rpgclass.activity.activity.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.PersistableBundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText editTextEmail, editTextSenha;
     private Button buttonEntrar;
     private ProgressBar progressBar;
+    private TextView textViewCadastrar;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -34,6 +37,14 @@ public class LoginActivity extends AppCompatActivity {
         editTextSenha = findViewById(R.id.editLoginSenha);
         buttonEntrar = findViewById(R.id.buttonEntrar);
         progressBar = findViewById(R.id.progressLogin);
+        textViewCadastrar = findViewById(R.id.textCadastrar);
+        textViewCadastrar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+                startActivity(new Intent(LoginActivity.this, CadastroActivity.class));
+            }
+        });
         buttonEntrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
