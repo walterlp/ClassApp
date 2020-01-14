@@ -64,7 +64,7 @@ public class CadastroActivity extends AppCompatActivity {
 
                     }
 
-                    new FirebaseDAO().register(editTextNome, editTextEmail, editTextSenha, sessao, progressBar,CadastroActivity.this);
+                    new FirebaseDAO().register(editTextNome.getText().toString(), editTextEmail.getText().toString(), editTextSenha.getText().toString(), sessao, progressBar,CadastroActivity.this);
 
 
                 }
