@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/backgroud_degrade"
-    tools:context=".activity.LoginActivity">
+    tools:context=".activity.activity.ui.LoginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -79,11 +79,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:onClick="abrirCadastro"
-        android:text="Cadastre-se"
+        android:text="Não possui cadastro? Clique aqui para cadastrar."
         android:textColor="@android:color/white"
         android:textSize="16sp"
-        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/progressLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

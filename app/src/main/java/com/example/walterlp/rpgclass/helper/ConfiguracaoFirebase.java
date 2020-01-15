@@ -1,4 +1,4 @@
-package com.example.walterlp.rpgclass.activity.todo.helper;
+package com.example.walterlp.rpgclass.helper;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;

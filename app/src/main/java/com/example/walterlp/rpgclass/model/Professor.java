@@ -1,4 +1,4 @@
-package com.example.walterlp.rpgclass.activity.todo.model;
+package com.example.walterlp.rpgclass.model;
 
 import java.util.List;
 

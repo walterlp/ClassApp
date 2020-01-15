@@ -1,15 +1,15 @@
-package com.example.walterlp.rpgclass.activity.todo.model;
+package com.example.walterlp.rpgclass.model;
 
 import java.util.List;
 
 public class Turma {
 
     private String idTurma;
+    private String idprofessor;
     private String urlImagem;
     private String nome;
     private String descricao;
     private String codigo;
-    private Professor professor;
     private List<Aluno> alunos;
 
 
@@ -53,12 +53,12 @@ public class Turma {
         this.codigo = codigo;
     }
 
-    public Professor getProfessor() {
-        return professor;
+    public String getIdprofessor() {
+        return idprofessor;
     }
 
-    public void setProfessor(Professor professor) {
-        this.professor = professor;
+    public void setIdprofessor(String idprofessor) {
+        this.idprofessor = idprofessor;
     }
 
     public List<Aluno> getAlunos() {
