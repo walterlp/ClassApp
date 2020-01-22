@@ -1,5 +1,7 @@
 package com.example.walterlp.rpgclass.activity.activity.model;
 
+import com.orm.SugarRecord;
+
 public enum TipoUsuario {
     ALUNO("aluno"),
     PROFESSOR("professor");

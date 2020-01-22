@@ -41,7 +41,7 @@ public class FirebaseDAO {
     private static StorageReference storageReference;
     private  static DatabaseReference databaseReference;
     private  static FirebaseAuth auth;
-    private static  List<Usuario> usuarios = new ArrayList<>();
+
 
 
     public static DatabaseReference getFirebase(){
@@ -97,8 +97,8 @@ public class FirebaseDAO {
     public void singOut(AppCompatActivity context){
         auth.signOut();
         removerSessao();
-        context.finish();
         context.startActivity(new Intent(context, LoginActivity.class));
+        context.finish();
 
     }
     public void login(final String email, final String senha, ProgressBar progressBar, AppCompatActivity context){
@@ -120,24 +120,26 @@ public class FirebaseDAO {
 
     }
     private void completarLoginAluno(String email){
-        usuarios = new ArrayList<>();
+        List<Usuario> usuarios = new ArrayList<>();
         Query queryAlunos = getAlunos();
         new GetDataFromFirebase().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+        queryAlunos.keepSynced(true);
         queryAlunos.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                usuarios.clear();
-                    for (DataSnapshot snapshot: dataSnapshot.getChildren()){
-                        Usuario  usuario = snapshot.getValue(Usuario.class);
-                        usuarios.add(usuario);
+               try{
+                   usuarios.clear();
+                   for (DataSnapshot snapshot: dataSnapshot.getChildren()){
+                       Usuario  usuario = snapshot.getValue(Usuario.class);
+                       usuarios.add(usuario);
+                   }
 
-
-                    }
-                    if(!seachUsuario(usuarios, email)){
-                        completarLoginProfessor(email);
-                    }
-
-
+                   if(!seachUsuario(usuarios, email)){
+                       completarLoginProfessor(email);
+                   }
+               }catch (Exception e){
+                   e.printStackTrace();
+               }
             }
 
             @Override
@@ -149,7 +151,7 @@ public class FirebaseDAO {
     }
 
     private void completarLoginProfessor(String email){
-        usuarios = new ArrayList<>();
+        List<Usuario> usuarios = new ArrayList<>();
         Query queryProfessores = getProfessores();
         new GetDataFromFirebase().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         queryProfessores.addValueEventListener(new ValueEventListener() {
@@ -159,8 +161,6 @@ public class FirebaseDAO {
                 for (DataSnapshot snapshot: dataSnapshot.getChildren()){
                     Usuario  usuario = snapshot.getValue(Usuario.class);
                     usuarios.add(usuario);
-
-
 
                 }
                 seachUsuario(usuarios, email);
@@ -176,6 +176,7 @@ public class FirebaseDAO {
         boolean isValid = false;
         for (Usuario u : usuarios) {
             if(u.getEmail().equals(email)){
+
                 salvarSessao(u);
                 isValid = true;
             }
@@ -185,10 +186,11 @@ public class FirebaseDAO {
     public void salvarSessao(Usuario usuario){
        try{
 
-           Sessao sessao = new Sessao();
-           sessao.setId(1L);
-           sessao.setTipoUsuario(usuario.getTipo());
-           sessao.save();
+          Sessao sessao = new Sessao(usuario.getTipo());
+          sessao.save();
+
+           List<Sessao> sessaos = Sessao.listAll(Sessao.class);
+           Log.v("SESSAO", String.valueOf(sessaos.size()));
 
        }catch (Exception e){
            e.printStackTrace();
@@ -197,7 +199,7 @@ public class FirebaseDAO {
     public  void removerSessao(){
         try {
             Sessao sessao = Sessao.findById(Sessao.class, 1L);
-            sessao.delete();
+            sessao.closed();
         }catch (Exception e){
             e.printStackTrace();
         }
