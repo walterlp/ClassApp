@@ -10,6 +10,7 @@ public class Turma  extends EntidadeNome{
 
     private String urlImagem;
 
+    private String nome;
     private String descricao;
     private String codigo;
     private String idProfessor;
@@ -18,6 +19,15 @@ public class Turma  extends EntidadeNome{
     private Map<String, String> refAlunos;
 
 
+    @Override
+    public String getNome() {
+        return nome;
+    }
+
+    @Override
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
     public String getUrlImagem() {
         return urlImagem;

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/alternativa"
+    tools:context=".activity.activity.ui.CadastrarSalaActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="119dp"
+        android:layout_marginTop="286dp"
+        android:text="Selecionar Imagem"
+        android:textColor="@color/colorAccent"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="229dp"
+        android:layout_height="232dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="96dp"
+        android:layout_marginTop="39dp"
+        android:layout_marginEnd="20dp"
+        app:srcCompat="@drawable/padrao" />
+
+    <EditText
+        android:id="@+id/editNomeTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="50dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="99dp"
+        android:layout_marginTop="366dp"
+        android:background="@drawable/backgroud_caixa_texto"
+        android:ems="10"
+        android:hint="Digite o nome da Guilda"
+        android:inputType="textMultiLine"
+        android:maxLength="50"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent" />
+
+    <EditText
+        android:id="@+id/editDescTurma"
+        android:layout_width="240dp"
+        android:layout_height="100dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="432dp"
+        android:background="@drawable/backgroud_caixa_texto"
+        android:ems="10"
+        android:hint="Descricao"
+        android:inputType="textMultiLine"
+        android:maxLength="300"
+        android:textColor="@color/colorAccent"
+        android:textColorHint="@color/colorAccent" />
+
+    <Button
+        android:id="@+id/CadastrarTurma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="163dp"
+        android:layout_marginTop="595dp"
+        android:background="@drawable/backgroud_botao"
+        android:text="Salvar"
+        android:textColor="@color/colorAccent" />
+</RelativeLayout>
